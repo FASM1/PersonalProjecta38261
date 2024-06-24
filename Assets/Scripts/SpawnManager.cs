@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnRandomEnemy", startDelay, enemySpawnTime);
-        InvokeRepeating("SpawnPowerup", startDelay, enemySpawnTime);
+        InvokeRepeating("SpawnPowerup", startDelay, powerSpawnTime);
 
     }
 
@@ -42,7 +42,7 @@ public class SpawnManager : MonoBehaviour
         float randomX = Random.Range(-xSpawnRange, xSpawnRange);
         float randomZ = Random.Range(-zPowerupRange, zPowerupRange);
 
-        Vector3 spawnPos = new Vector3(randomX, ySpawn, zEnemySpawn);
+        Vector3 spawnPos = new Vector3(randomX, ySpawn, randomZ);
         Instantiate(powerup, spawnPos, powerup.gameObject.transform.rotation);
     }
 }
